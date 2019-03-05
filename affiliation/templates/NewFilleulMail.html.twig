@@ -1,0 +1,25 @@
+{# /src/templates/NewFilleulMail.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block tittle %} New Filleul {% endblock %}
+
+{% block body %}
+    {% if parrain is null %}
+        <h2> There is new direct filleul </h2>
+    {% else %}
+        {% if indirect == true %}
+            <h2>A filleul is assigned to you; !</h2>
+        {% else %}
+            <h2>You get a new filleul !</h2>
+        {% endif %}
+    {% endif %}
+    <p>
+        Username : {{ user_name }} <br/>
+        Email : {{ email }}
+    </p>
+    <footer>
+        {{ 'now'|date('d/m/Y') }}
+    </footer>
+
+{% endblock %}

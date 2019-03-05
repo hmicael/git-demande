@@ -1,0 +1,24 @@
+{# /src/templates/InvitationMail.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block tittle %} Parrainage {% endblock %}
+
+{% block body %}
+    <h2>Hello !</h2>
+    <p>
+        {{ parrain_user_name }} - {{ parrain_email }} invite you to join e-commerce community ! <br/>
+    </p>
+    {# woocommerce_account_url est une variable global definie dans /config/twig.yaml#}
+    <form method="post" action="{{ woocommerce_account_url }}?parrainage=1">
+        <input type="hidden" name="parrain_user_id" value="{{ parrain_user_id }}"/>
+        <input type="hidden" name="parrain_user_name" value="{{ parrain_user_name }}" readonly/>
+        <input type="hidden" name="parrain_email" value="{{ parrain_email }}" readonly/>
+        <input type="hidden" name="email" value="{{ your_email }}" readonly/>
+        <input type="submit" value="Clic here to subscribe"/>
+    </form>
+    <footer>
+        {{ 'now'|date('d/m/Y') }}
+    </footer>
+
+{% endblock %}

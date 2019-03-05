@@ -1,0 +1,19 @@
+nelmio_api_doc:
+    documentation:
+        host: 172.18.0.13
+        schemes: [http, https]
+        info:
+            title: Affiliation
+            description: It's a microservice that manages membership affiliation
+            version: 1.0.0
+        # securityDefinitions:
+        #     Bearer:
+        #         type: apiKey
+        #         description: 'Value: Bearer {jwt}'
+        #         name: Authorization
+        #         in: header
+        # security:
+        #     - Bearer: []            
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/(?!/doc$) # Accepts routes under / except /api/doc
